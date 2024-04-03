@@ -33,16 +33,24 @@
 }
 
 .headerIcon {
-    max-height: 42px;
-    width: 42px;
+    max-height: 45px;
+    width: 48px;
     margin-left: 12px;
     margin-right: 10px;
 }
 
 .productName {
     color: #fff;
-    font-size: larger;
-    font-weight: 600;
+    font-size: 19px;
+    font-weight: 500;   
+}
+
+.useCaseName { 
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: -5px;
+    margin-top: -5px;
 }
 
 .logo {

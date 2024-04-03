@@ -47,6 +47,7 @@ const Layout = () => {
     const [isSharePanelOpen, setIsSharePanelOpen] = useState<boolean>(false);
     const [copyClicked, setCopyClicked] = useState<boolean>(false);
     const [copyText, setCopyText] = useState<string>("Copy URL");
+    const [usecaseName, setUsecaseName] = useState<string>("");
     const appStateContext = useContext(AppStateContext)
     const [folderList, setFolderList] = useState<any>('');
     const [folderKey, setFolderKey] = useState<any>('');
@@ -102,6 +103,11 @@ const Layout = () => {
     // useEffect(() => { intFolderInfo() }, []);
     useEffect(() => {}, [appStateContext?.state.isCosmosDBAvailable.status]);
 
+    useEffect(() => { 
+        const useCase = window.sessionStorage.getItem("useCaseName");
+        setUsecaseName(useCase || ""); 
+    }, []);
+
     return (
         <div className={styles.layout}>
             <div className={styles.parentHeader}>
@@ -110,13 +116,20 @@ const Layout = () => {
                     // className={styles.headerContainer}
                     >
                         <Stack horizontal verticalAlign="center" className={styles.logo}>
-                            <Link to="/">
+                            <Link className="d-inline-flex navbar-brand text-capitalize" to="/">
                                 <img
                                     src={logo}
                                     className={styles.headerIcon}
                                 />
-                            
-                                <span className={styles.productName}>Nucleus Gen AI</span>
+                                <div style={{marginTop: "-4px"}}>
+                                    <span className={styles.productName}>
+                                        DIF Gen AI   
+                                    </span>
+                                    <br />
+                                    <p className={styles.useCaseName}>
+                                        {usecaseName}
+                                    </p> 
+                                </div>
                             </Link>
                         </Stack>
                         <Stack horizontal tokens={{ childrenGap: 4 }}>

@@ -41,6 +41,13 @@ function LandingPage() {
         })
     }
 
+    const setUsecase = (useCaseName: string) => {
+        window.sessionStorage.setItem(
+            "useCaseName",
+            useCaseName
+          );
+    }
+
     useEffect(() => { callUseCaseList() }, []);
 
     return (
@@ -126,6 +133,7 @@ function LandingPage() {
                                                                     .replace(/ /g, "")
                                                                     .toLowerCase()}
                                                                 relative={"route"}
+                                                                onClick={() => setUsecase(usecase)}
                                                             >
                                                                 <Card className={commonStyles.landingPageChildCard}>
                                                                     <Card.Body>
